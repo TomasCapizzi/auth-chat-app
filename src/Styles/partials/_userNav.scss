@@ -1,0 +1,38 @@
+@import './data';
+
+.user-nav{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    background-color: $color4;
+    padding: 15px 0;
+
+    div{
+        display: flex;
+        align-items: center;
+        h3{
+            font-weight: 300;
+            color: $color2;
+            margin-right: 10px;
+        }
+
+        img{
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            opacity: 0.7;
+        }
+        img:hover{
+            opacity: 1;
+        }
+    }
+
+    button{
+        font-size: 1.2rem;
+        align-items: center;
+        display: flex;
+        justify-content: space-between;
+        width: 120px;
+    }
+}

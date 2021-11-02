@@ -1,0 +1,17 @@
+@import './data';
+
+.chat{
+    display: flex;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 40px;
+
+    .msj-container{
+        width: 100%;
+        margin-bottom: 50px;
+        height: 60vh;
+        overflow: scroll;
+        overflow-x: hidden;
+        border-top: 1px solid $color2;
+    }
+}

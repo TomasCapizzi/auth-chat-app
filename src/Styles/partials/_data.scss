@@ -1,0 +1,15 @@
+$color1: #fff;
+$color2: #353535;
+$color3: #3C6E71;
+$color4: #D9D9D9;
+$color5: #284B63;
+
+
+button{
+    background-color: transparent;
+    border: 2px solid $color3;
+    color: $color2;
+    cursor: pointer;
+    border-radius: 15px;
+    padding: 5px;
+}
