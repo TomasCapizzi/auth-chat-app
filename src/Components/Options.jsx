@@ -10,7 +10,6 @@ export default function Options({setOption}){
         setOption(e);
     }
     const googleLog = async (e)=>{
-        console.log(e);
         setOption(e);
         try {
             await app.auth().signInWithPopup(new fb.auth.GoogleAuthProvider())

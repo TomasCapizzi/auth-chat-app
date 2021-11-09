@@ -7,8 +7,6 @@ export default function TextForm({user, showLastMsj}){
     const [newMsj, setNewMsj] = useState('');
     const {uid, displayName, photoURL, email} = user;
 
-    console.log( uid, user)
-
     function handleNew(e){
         setNewMsj(e.target.value)
     }

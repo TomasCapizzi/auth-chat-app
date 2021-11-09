@@ -32,7 +32,6 @@ export default function Log({setUser, option, setOption, setName}){
         const mail = e.target.email.value;
         const password = e.target.password.value;
         setName(e.target.name.value)
-        console.log(mail, password)
         if(isLog === false){
             createUser(mail, password)
         } else{
