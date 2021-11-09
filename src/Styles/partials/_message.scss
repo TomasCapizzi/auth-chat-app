@@ -99,3 +99,185 @@
         display: flex;
     }
 }
+
+
+// Responsive
+
+@media only screen and(max-width:400px){
+    .message-container{
+        display: flex;
+        width: 100%;
+        height: auto;
+        padding: 0px;
+        align-items: center;
+        position: relative;
+    
+        svg{
+            font-size: 1.25rem;
+            margin: 5px;
+        }
+    
+        .message{
+            display: flex;
+            align-items: center;
+            width: 90%;
+            height: auto;
+            word-break: break-all;
+            img{
+                width: 25px;
+                height: 25px;
+            }    
+            p:nth-child(2){
+                font-size: 0.9rem;
+                margin-right: 20px;
+            }
+    
+            .date{
+                padding: 5px;
+                font-size: 0.5rem;
+                border-radius: 6px;
+            }
+    
+            .user-none{
+                display: none;
+                position: absolute;
+                margin-right: 5px;
+                right: 0;
+    
+                p{
+                    transition: 0.3s ease-in-out;
+                    color: $color3;
+                    font-size: 1rem;
+                    border-radius: 7px;
+                }
+            }
+    
+        }
+    
+        button{
+            display: none;
+            font-size: 1.8rem;
+            border: none;
+            color: $color3;
+        }
+    
+        .send{
+            justify-content: flex-start;
+        }
+    
+        .received{
+            width: 100%;
+            justify-content: flex-start;
+            display: flex;
+            flex-direction: row-reverse;
+            background-color: $color4;
+    
+            .date{
+                background-color: $color3;
+                padding: 5px;
+                font-size: 0.5rem;
+                color: $color1;
+                border-radius: 6px;
+                margin-right: 10px;
+            }
+    
+            .user-none{
+                margin-left: 5px;
+                left: 0;
+            }
+        }
+    
+    
+    }
+
+}
+
+
+@media only screen and(min-width:400px) and(max-width:600px){
+    .message-container{
+        display: flex;
+        width: 100%;
+        height: auto;
+        padding: 0px;
+        align-items: center;
+        position: relative;
+    
+        svg{
+            font-size: 1.35rem;
+            margin: 5px;
+        }
+    
+        .message{
+            display: flex;
+            align-items: center;
+            width: 90%;
+            height: auto;
+            word-break: break-all;
+            img{
+                width: 25px;
+                height: 25px;
+            }    
+            p:nth-child(2){
+                font-size: 1rem;
+                margin-right: 20px;
+            }
+    
+            .date{
+                padding: 5px;
+                font-size: 0.65rem;
+                border-radius: 6px;
+            }
+    
+            .user-none{
+                display: none;
+                position: absolute;
+                margin-right: 5px;
+                right: 0;
+    
+                p{
+                    transition: 0.3s ease-in-out;
+                    color: $color3;
+                    font-size: 1rem;
+                    border-radius: 7px;
+                }
+            }
+    
+        }
+    
+        button{
+            display: none;
+            font-size: 1.8rem;
+            border: none;
+            color: $color3;
+        }
+    
+        .send{
+            justify-content: flex-start;
+        }
+    
+        .received{
+            width: 100%;
+            justify-content: flex-start;
+            display: flex;
+            flex-direction: row-reverse;
+            background-color: $color4;
+    
+            .date{
+                background-color: $color3;
+                padding: 5px;
+                font-size: 0.65rem;
+                color: $color1;
+                border-radius: 6px;
+                margin-right: 10px;
+            }
+    
+            .user-none{
+                margin-left: 5px;
+                left: 0;
+            }
+        }
+    
+    
+    }
+
+}

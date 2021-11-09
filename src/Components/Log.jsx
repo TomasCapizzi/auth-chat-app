@@ -21,7 +21,7 @@ export default function Log({setUser, option, setOption, setName}){
     const logIn = (mail, password)=>{
         app.auth().signInWithEmailAndPassword(mail, password).then((user)=>{
             console.log('Log in with: ', user.user)
-            setUser(user)
+            //setUser(user)  Esto no va ya que el onAuthStateChanged lo capta solo 
         }).catch(()=>{
             setError(true)
         })

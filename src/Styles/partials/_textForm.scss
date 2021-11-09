@@ -28,3 +28,34 @@
         border-left: 1px solid $color3;
     }
 }
+
+@media only screen and(max-width:600px){
+    .form-container{
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: space-around;
+        margin-bottom: 50px;
+    
+        textarea{
+            width: 90%;
+            border: none;
+            height: 40px;
+            resize: none;
+            padding: 5px;
+            font-size: 1.05rem;
+            text-align: center;
+        }
+        textarea:focus{
+            outline: none;
+        }
+        button{
+            font-size: 1.5rem;
+            width: 100px;
+            border: none;
+            border-radius: 0;
+            border-left: 1px solid $color3;
+        }
+    }
+
+}

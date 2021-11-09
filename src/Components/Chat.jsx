@@ -3,12 +3,17 @@ import Message from "./Message";
 import TextForm from "./TextForm";
 
 export default function Chat({user = null,db = null}){
-
+   
     const [messages, setMessages] = useState([]);
 
 
     const handleDelete = (id) => {
         db.collection('messages').doc(id).delete(); 
+    }
+
+    function showLastMsj(){
+        const refSpan = document.getElementById('ref')
+        refSpan.scrollIntoView()
     }
 
     useEffect(()=>{
@@ -26,6 +31,7 @@ export default function Chat({user = null,db = null}){
             )
             return msgList;
         }
+        
     },[db])
 
     return (
@@ -36,9 +42,9 @@ export default function Chat({user = null,db = null}){
                         message => <Message key={message.id} message={message} user={user} handleDelete={handleDelete}/>
                     )
                 }
+                <span id='ref'></span>
             </div>
-            <span></span>
-            <TextForm user={user} />
+            <TextForm user={user} showLastMsj={showLastMsj} />
         </section>
     );
 }

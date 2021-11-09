@@ -5,7 +5,6 @@ import {GrMail} from 'react-icons/gr';
 
 export default function Options({setOption}){
 
-
     const handleOptions = (e)=>{
         console.log(e)
         setOption(e);

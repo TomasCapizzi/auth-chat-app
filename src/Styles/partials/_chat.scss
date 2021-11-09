@@ -14,4 +14,48 @@
         overflow-x: hidden;
         border-top: 1px solid $color2;
     }
+
+    span{
+        scroll-behavior: smooth;
+    }
+}
+
+@media only screen and(max-width:400px){
+    .chat{
+        display: flex;
+        flex-wrap: wrap;
+        width: 95%;
+        margin: 0px;
+        margin-top: 20px;
+    
+        .msj-container{
+            width: 100%;
+            margin-bottom: 50px;
+            height: 600px;
+            overflow: scroll;
+            overflow-x: hidden;
+            border-top: 1px solid $color2;
+        }
+    }
+
+}
+
+@media only screen and(min-width:400px) and(max-width:600px) {
+
+    .chat{
+        display: flex;
+        flex-wrap: wrap;
+        width: 90%;
+        margin: 0px;
+        margin-top: 40px;
+    
+        .msj-container{
+            width: 100%;
+            margin-bottom: 50px;
+            height: 600px;
+            overflow: scroll;
+            overflow-x: hidden;
+            border-top: 1px solid $color2;
+        }
+    }
 }

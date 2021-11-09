@@ -30,3 +30,20 @@
         }
     }
 }
+
+@media only screen and (max-width:350px){
+    .options{
+        width: 100%;
+
+        h3{
+            font-size: 1.25rem;
+            width: 85%;
+        }
+
+        ul button{
+            width: 60%;
+            margin-top: 10px;
+            font-size: 1.25rem;
+        }
+    }
+}
