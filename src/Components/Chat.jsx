@@ -1,15 +1,16 @@
-import React,{useState, useEffect} from "react";
+import React,{useEffect, useState} from "react";
+
 import Message from "./Message";
 import TextForm from "./TextForm";
+import useDeleteMsj from "../Hooks/useDeleteMsj";
+import useshowMsjs from "../Hooks/useshowMsjs";
 
 export default function Chat({user = null,db = null}){
    
     const [messages, setMessages] = useState([]);
+    const {handleDelete} = useDeleteMsj({db})
 
-
-    const handleDelete = (id) => {
-        db.collection('messages').doc(id).delete(); 
-    }
+    const {showMessages} = useshowMsjs({db, setMessages})
 
     function showLastMsj(){
         const refSpan = document.getElementById('ref')
@@ -17,21 +18,7 @@ export default function Chat({user = null,db = null}){
     }
 
     useEffect(()=>{
-        if(db){
-            const msgList = db.collection('messages').orderBy('createdAt').limit(100).onSnapshot(
-                querySnapshot => {
-                    const data = querySnapshot.docs.map(
-                        doc=> ({
-                            ...doc.data(),
-                            id: doc.id
-                        })
-                    )
-                    setMessages(data)
-                }
-            )
-            return msgList;
-        }
-        
+        showMessages();     
     },[db])
 
     return (
