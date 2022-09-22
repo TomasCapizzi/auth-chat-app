@@ -1,7 +1,8 @@
-import React from "react";
 import { app, db } from "../firebase";
-import Chat from "./Chat";
-import UserNAv from "./UserNav";
+
+import Chat from "../Components/Chat";
+import React from "react";
+import UserNAv from "../Components/UserNav";
 
 export default function Home({user, name}){
 
