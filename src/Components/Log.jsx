@@ -1,80 +1,30 @@
-import React, {useState} from "react";
-import { app } from "../firebase";
-
+import LogButtons from "./LogButtons";
+import LogErrors from "./LogErrors";
+import LogForm from "./LogForm";
+import React from "react";
+import useLoginMail from "../Hooks/useLoginMail";
 
 export default function Log({setUser, option, setOption, setName}){
 
-    const [isLog, setIsLog] = useState(false);
-    const [error, setError] = useState(false);
-    const [userTaken, setUserTaken] = useState(false);
+    const {submitHandler, changeAccountLog, isLog, error, userTaken, setIsLog, setError, setUserTaken} = useLoginMail({setUser, option, setOption, setName})
     
-
-    const createUser = (mail, password)=>{
-
-        app.auth().createUserWithEmailAndPassword(mail,password).then((user)=>{
-            setUser(user)
-        }).catch(()=>{
-            setUserTaken(true)
-        })
-    }
-
-    const logIn = (mail, password)=>{
-        app.auth().signInWithEmailAndPassword(mail, password).then((user)=>{
-            console.log('Log in with: ', user.user)
-            //setUser(user)  Esto no va ya que el onAuthStateChanged lo capta solo 
-        }).catch(()=>{
-            setError(true)
-        })
-    }
-
-    const submitHandler = (e)=>{
-        e.preventDefault();
-        const mail = e.target.email.value;
-        const password = e.target.password.value;
-        setName(e.target.name.value)
-        if(isLog === false){
-            createUser(mail, password)
-        } else{
-            logIn(mail, password)
-        }
-    }
-
-    const changeAccountLog = ()=>{
-        setOption(null)
-    }
 
     return(
         <section className='log-screen'>
             <h1>Welcome!</h1>
-            {error && <p>Mail or password incorrect</p>}
-            {userTaken && <p>Mail already taken / Password length must be 6 or more</p>}
+            <LogErrors error={error} userTaken={userTaken}  />
             <h3>{isLog ? 'Log in' : 'Register'}</h3>
-            <form action="" onSubmit={submitHandler}>
-
-                <label htmlFor="">Mail</label>
-                <input type="email" id='email'/>
-                <label htmlFor="">Pass</label>
-                <input type="password" id='password' />
-                <button>{isLog ? 'Log in' : 'Register'}</button>
-            </form>
-            <div>
-                <button onClick={()=> {
-                    setIsLog(!isLog);
-                    setUserTaken(false);
-                    setError(false);
-                }}>{!isLog ? 'Have an account? Log in': 'Don´t have account? Register'}</button>
-                <button onClick={changeAccountLog}>Change Account LogIn</button>
-            </div>
+            <LogForm submitHandler={submitHandler} isLog={isLog} />
+            <LogButtons setIsLog={setIsLog} setError={setError} setUserTaken={setUserTaken} isLog={isLog} changeAccountLog={changeAccountLog} />
         </section>
     )
 } 
-
 /*
-                {
-                    !isLog && 
-                    <>
-                        <label htmlFor="">Name</label>
-                        <input type="text" id='name' />
-                    </>
-                }
+    {
+        !isLog && 
+        <>
+            <label htmlFor="">Name</label>
+            <input type="text" id='name' />
+        </>
+    }
 */
